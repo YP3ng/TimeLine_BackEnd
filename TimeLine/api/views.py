@@ -24,3 +24,6 @@ def getNum(request, input):
 
 
 # TL core functionalities
+@api_view(['GET'])
+def getTL(request, url):
+    pass

@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Test Front</h1>
+    
+    <div id = "test">
+
+    </div>
+</body>
+
+<script>
+
+    let container = document.getElementById('test')
+
+    let callApi = async () => {
+        
+        let response = await fetch('http://127.0.0.1:9000/api/rest')
+        // serializable
+        let res = await response.json()
+        // display in console
+        console.log('RESPONSE:', res)
+
+        // display on the webpage container
+        for(let i = 0; res.length > i; i++){
+            let output = res[i]
+            let row = `<div>
+                            <h3> ${output} </h3>
+                        </div>`
+            
+            container.innerHTML += row
+        }
+    }
+
+    
+
+    callApi()
+</script>
+</html>

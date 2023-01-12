@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+# testing
 def getRoutes(request):
     routes = [
         'GET /api',
@@ -20,3 +21,6 @@ def getRestRoute(request):
 @api_view(['GET'])
 def getNum(request, input):
     return Response(input)
+
+
+# TL core functionalities

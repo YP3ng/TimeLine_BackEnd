@@ -27,14 +27,7 @@ def getNum(request, input):
     return Response(input+"awake")
 
 # Test Damian dummy code
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def getOutcome(request):
     dummyJson = run()
     return Response(dummyJson)
-
-# TL core functionalities
-@api_view(['GET'])
-def getTL(request, url):
-    pass
-
-

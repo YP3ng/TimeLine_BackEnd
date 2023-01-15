@@ -8,8 +8,17 @@
 def run():
     print("In Damian dummy code")
     # do somthing and save the output to dummyJson
-    dummyJson = [
-        ['15/1/2023', "Testing connection"],
-    ]
+    # dummyJson = [
+    #     ['15/1/2023', "Testing connection"],
+    #     ['Date', "Description"]
+    # ]
+
+    dummyJson = {
+        'body': [
+            {'date': '15/1/2023', 'description': 'Testing connection'},
+            
+            # ...
+        ],
+    }
 
     return dummyJson

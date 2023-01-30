@@ -9,18 +9,21 @@ def my_view(request):
     res = calculate.apply_async(
         [1], 
         #queue='test', 
-        countdown=5,
+        #countdown=3,
     )
-    print("id: ", res.id)
-    print("state: ", res.state)
+    print("--------------------We still work while sleeping--------------------")
 
+    respond = [
+        {
+            'id': res.id,
+            'state_pre': res.state,
+            'result': res.get(),
+            'state_after': res.state,
+            'successful_after': res.successful(),
+            'metadata': res.info,
 
-    drespond = [
-        "apply_async",
-        "delay",
+        },
     ]
 
-    #res = calculate.delay(2)
-    # res is an instance of asyncResult, need to convert
-    # However, celery works
-    return Response(drespond)
+    print("------------------------------Job done------------------------------")
+    return Response(respond)

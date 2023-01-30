@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import time
+from time import sleep
 from TimeLine.DamianCodeDummy.runDCcode import run
 # import sys
 # sys.path.append()
@@ -20,6 +20,9 @@ def getRestRoute(request):
         'GET /api/rest',
         'GET /api/rest/:Number'
     ]
+    print("---------------------------Start sleeping---------------------------")
+    sleep(20)
+    print("--------------------We don't work while sleeping--------------------")
     return Response(routes)
 
 @api_view(['GET'])

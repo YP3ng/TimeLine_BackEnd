@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'TimeLine',
     'rest_framework',
     'corsheaders',
+
+    #'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080",
 ]
+
+# Celery settings
+#CELERY_RESULT_BACKEND = 'django-db'
+#CELERY_CACHE_BACKEND = 'django-cache'

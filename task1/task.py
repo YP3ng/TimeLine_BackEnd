@@ -1,6 +1,5 @@
-from celery.decorators import task
+from celery import shared_task
 
-@task(name="calculate")
-def calculate(x, y):
-    res = x + y
-    return res
+@shared_task
+def calculate(input):
+    return input + 1

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-    #'django_celery_results',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +135,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080",
 ]
 
-# Celery settings
+# Celery result backend settings
 #CELERY_RESULT_BACKEND = 'django-db'
-#CELERY_CACHE_BACKEND = 'django-cache'
+CELERY_CACHE_BACKEND = 'django-cache'

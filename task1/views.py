@@ -16,9 +16,9 @@ def my_view(request, input):
     respond = [
         {
             'id1': res1.id,
-            'state_pre': res1.state,
+            #'state_pre': res1.state,
             'result': res1.get(),
-            'state_after': res1.state,
+            #'state_after': res1.state,
             'successful_after': res1.successful(),
             'metadata': res1.info,
 

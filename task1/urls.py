@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.my_view),
+    path('in/<int:input>/', views.my_view),
 
 ]

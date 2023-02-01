@@ -16,7 +16,7 @@ def my_view(request, input):
     respond = [
         {
             'id1': res1.id,
-            #'state_pre': res1.state,
+            'state_pre': res1.state,
             'result': res1.get(),
             'state_after': res1.state,
             'successful_after': res1.successful(),
@@ -24,20 +24,20 @@ def my_view(request, input):
 
         },
     ]
-    res2 = multiply.apply_async(
-        [res1.get()],
-    )
+    # res2 = multiply.apply_async(
+    #     [res1.get()],
+    # )
 
-    print("-------------------------After second task--------------------------")
+    # print("-------------------------After second task--------------------------")
     
-    respond.append({
-            'id2': res2.id,
-            'state_pre': res2.state,
-            'result': res2.get(),
-            'state_after': res2.state,
-            'successful_after': res2.successful(),
-            'metadata': res2.info,
-        })
+    # respond.append({
+    #         'id2': res2.id,
+    #         'state_pre': res2.state,
+    #         'result': res2.get(),
+    #         'state_after': res2.state,
+    #         'successful_after': res2.successful(),
+    #         'metadata': res2.info,
+    #     })
     
 
     print("------------------------------Job done------------------------------")

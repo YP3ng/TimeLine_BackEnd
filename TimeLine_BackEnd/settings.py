@@ -138,3 +138,7 @@ CORS_ALLOWED_ORIGINS = [
 # Celery result backend settings
 #CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'django-cache'
+
+# State related
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_RESULT_EXPIRES = False

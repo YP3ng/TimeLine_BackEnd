@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from task1.task import add, multiply
+from time import sleep
 
 @api_view(['GET'])
 def my_view(request, input):
@@ -13,10 +14,14 @@ def my_view(request, input):
         #countdown=3,
     )
     print("--------------------We still work while sleeping--------------------")
+    while not res1.ready():
+        print(f'State={res1.state}, info={res1.info}')
+        sleep(1)
+
+    
     respond = [
         {
             'id1': res1.id,
-            'state_pre': res1.state,
             'result': res1.get(),
             'state_after': res1.state,
             'successful_after': res1.successful(),

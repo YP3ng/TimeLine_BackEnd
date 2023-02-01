@@ -8,7 +8,7 @@ logger = get_task_logger(__name__)
 
 @shared_task(bind=True, name='tasks.add')
 def add(self, input):
-    sleep(5) # Simulate expensive operations
+    #sleep(5) # Simulate expensive operations
     logger.info("add 100")
 
     # Info about current task
@@ -18,14 +18,16 @@ def add(self, input):
     # Issue: State gets override by built-in state, 
     # and RPC backend doesn't store the states in-progress
     # Solution: Select other backend, maybe Redis or DB
-    logger.info(self.AsyncResult(self.request.id).state)
+    n = 30
+    for i in range(n):
+        self.update_state(
+            state= "CUSTOM", 
+            meta={'done': i, 'total': n}
+        )
+        sleep(1)
 
-    self.update_state(
-        state= "CUSTOM", 
-        meta={'input': input, 'result': input+100}
-    )
-
-    logger.info(self.AsyncResult(self.request.id).state) # PENDING
+    # Can't check state change within task
+    #logger.info(self.AsyncResult(self.request.id).state) # PENDING
     return input + 100
 
 

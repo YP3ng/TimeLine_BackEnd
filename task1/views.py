@@ -17,7 +17,8 @@ def my_view(request, input):
     while not res1.ready():
         print(f'State={res1.state}, info={res1.info}')
         sleep(1)
-
+    # Built-in state override at the end, need DB or other backend to store state in-progress
+    print(f'State={res1.state}, info={res1.info}')
     
     respond = [
         {

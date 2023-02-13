@@ -7,7 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TimeLine_BackEnd.settings')
 app = Celery(
     'TimeLine_BackEnd',
     broker='amqp://',
-    backend='rpc://'
+    backend='rpc://', # Can use DB instead
 )
 
 app.conf.update(

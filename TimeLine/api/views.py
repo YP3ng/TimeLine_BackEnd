@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from time import sleep
-from TimeLine.DamianCodeDummy.runDCcode import run
+from TimeLine.DummyMainCode.runDCcode import run
 # import sys
 # sys.path.append()
 
@@ -29,7 +29,7 @@ def getRestRoute(request):
 def getNum(request, input):
     return Response(input+"awake")
 
-# Test Damian dummy code
+# Test dummy code
 @api_view(['GET', 'POST'])
 def getOutcome(request):
     dummyJson = run()
